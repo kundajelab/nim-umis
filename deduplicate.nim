@@ -63,9 +63,13 @@ Usage:
         canRelease.incl(tinfo)
         shouldWrite = false
 
-    if not shouldWrite:
+    if shouldWrite:
+      stdout.write_line(record.tostring())
+
+    else:
       numDuplicates += 1
-      echo "found duplicate!"
 
 
-  echo "Finished. Num records: ", numRecords, ", num duplicates: ", numDuplicates
+
+  stderr.write_line("Finished. Num records: ", numRecords,
+                    ", num duplicates: ", numDuplicates)
